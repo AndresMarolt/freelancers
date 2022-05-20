@@ -222,11 +222,45 @@ h1, h2, h3{
     text-align: center;
 }
 
+.flip-container {
+    perspective: 1000px;
+}
+
+.flip-container:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card, .front, .back {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+}
+
+.card {
+    position: relative;
+    transition: 0.5s all;
+    transform-style: preserve-3d;
+}
+
+.front, .back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front {
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+
+.back {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
 .servicio .iconos{
     height: 15rem;
     width: 15rem;
     background-color: var(--primario);
-    border-radius: 50%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
